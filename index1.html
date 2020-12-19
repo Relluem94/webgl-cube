@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WEBGL Test</title>
+        <meta charset="utf-8">
+        <style>
+            body {
+                background-color: #333;
+                margin: 0;
+                overflow: hidden;
+                background-image: url(gitter.png);
+                background-repeat:repeat;
+            }
+        </style>
+    </head>
+    <body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r57/three.min.js"></script>
+        <script>
+
+            var camera, scene, renderer;
+            var geometry, material, mesh;
+
+
+            var init = function () {
+
+                renderer = new THREE.CanvasRenderer();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                document.body.appendChild(renderer.domElement);
+
+                camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
+                camera.position.z = 500;
+
+                scene = new THREE.Scene();
+
+
+
+                geometry1 = new THREE.CubeGeometry(300, 200, 400);
+                var material = new THREE.MeshFaceMaterial([
+                    new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture('r.png')}),
+                    new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture('e.png')}),
+                    new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture('l.png')}),
+                    new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture('l.png')}),
+                    new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture('u.png')}),
+                    new THREE.MeshBasicMaterial({map: THREE.ImageUtils.loadTexture('z.png')})
+                ]);
+                mesh = new THREE.Mesh(geometry1, material);
+                scene.add(mesh);
+
+            }
+
+
+
+
+
+
+            var animate = function () {
+
+                requestAnimationFrame(animate);
+
+                mesh.rotation.x += .005;
+                mesh.rotation.y += .005;
+
+                renderer.render(scene, camera);
+
+            }
+
+            init();
+            animate();
+
+        </script>
+    </body>
+</html>
