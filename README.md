@@ -1,1 +1,1 @@
-![Logo](https://raw.githubusercontent.com/Relluem94/webgl-cube/main/webgl_cube.png)
+![Logo](https://img.relluem94.de/logos/webgl_cube.png)
