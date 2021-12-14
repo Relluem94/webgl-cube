@@ -1,1 +1,1 @@
-![Logo](https://img.relluem94.de/logos/webgl_cube.png)
+![Logo](https://img.relluem94.de/logos/web/webgl_cube.png)
